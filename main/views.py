@@ -1,10 +1,13 @@
 from django.shortcuts import render
-from django.utils import lorem_ipsum
+from goods.models import Categories
 
 def index(request):
+    categories = Categories.objects.all()
+
     context = {
         'title': 'Чёрное Белое - Главная',
         'content': 'Фотостудия Чёрное Белое',
+        'categories': categories
     }
     return render(request, 'main/index.html', context)
 
