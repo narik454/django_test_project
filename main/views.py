@@ -1,18 +1,17 @@
-from django.http import HttpResponse
 from django.shortcuts import render
-
+from django.utils import lorem_ipsum
 
 def index(request):
-    
     context = {
-        'title': 'Home',
-        'content': 'Главная старница магазина Чёрное Белое',
-        'list': ['first', 'second'],
-        'dict': {'first': 1},
-        'is_auth': True
+        'title': 'Чёрное Белое - Главная',
+        'content': 'Фотостудия Чёрное Белое',
     }
-
     return render(request, 'main/index.html', context)
 
 def about(request):
-    return HttpResponse('About Page')
+    context = {
+        'title': 'Чёрное Белое - О нас',
+        'content': 'Фотостудия Чёрное Белое, о нас',
+        'text_on_page': 'TEXTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+    }
+    return render(request, 'main/about.html', context)
